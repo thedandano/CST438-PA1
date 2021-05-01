@@ -1,4 +1,4 @@
-package cst438;
+package cst438_1;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;

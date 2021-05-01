@@ -1,4 +1,4 @@
-package cst438;
+package cst438_1;
 
 import java.util.Date;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public class MovieRating {
   @NotNull
   @Min(1)
   @Max(5)
-  private int movieRating;
+  private int rating;
 
   @NotNull
   @Size(min = 1, max = 25)
@@ -38,12 +38,12 @@ public class MovieRating {
   // Constructors
   public MovieRating() {}
 
-  public MovieRating(long id, String movieTitle, int movieRating, String firstName, String lastName,
+  public MovieRating(long id, String movieTitle, int rating, String firstName, String lastName,
       Date dateTime) {
     super();
     this.id = id;
     this.movieTitle = movieTitle;
-    this.movieRating = movieRating;
+    this.rating = rating;
     this.firstName = firstName;
     this.lastName = lastName;
     this.dateTime = dateTime;
@@ -65,12 +65,12 @@ public class MovieRating {
     this.movieTitle = movieTitle;
   }
 
-  public int getMovieRating() {
-    return movieRating;
+  public int getRating() {
+    return rating;
   }
 
-  public void setMovieRating(int movieRating) {
-    this.movieRating = movieRating;
+  public void setRating(int rating) {
+    this.rating = rating;
   }
 
   public String getFirstName() {
