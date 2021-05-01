@@ -3,6 +3,8 @@ package cst438;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,20 +20,32 @@ public class MovieRating {
   private String movieTitle;
 
   @NotNull
-  @Size(min = 1, max = 25)
-  private String name;
+  @Min(1)
+  @Max(5)
+  private int movieRating;
 
   @NotNull
-  @Size(min = 1, max = 5)
-  private int rating;
+  @Size(min = 1, max = 25)
+  private String firstName;
+
+  @NotNull
+  @Size(min = 1, max = 25)
+  private String lastName;
+
+  private String time;
 
   // Constructors
-  public MovieRating(long id, String movieTitle, String name, int rating) {
+  public MovieRating() {}
+
+  public MovieRating(long id, String movieTitle, int rating, String firstName, String lastName,
+      String time) {
     super();
     this.id = id;
     this.movieTitle = movieTitle;
-    this.name = name;
-    this.rating = rating;
+    this.movieRating = rating;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.time = time;
   }
 
   public long getId() {
@@ -50,20 +64,36 @@ public class MovieRating {
     this.movieTitle = movieTitle;
   }
 
-  public String getName() {
-    return name;
+  public int getMovieRating() {
+    return movieRating;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setMovieRating(int movieRating) {
+    this.movieRating = movieRating;
   }
 
-  public int getRating() {
-    return rating;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setRating(int rating) {
-    this.rating = rating;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
   }
 
 

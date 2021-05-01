@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface MovieRatingRepository extends CrudRepository<MovieRating, Long> {
 
-  @Query("SELECT m from MovieRating m order by title, date desc")
+  // generates a custom query
+  @Query("select m from MovieRating m order by title, date desc")
   List<MovieRating> findAllMovieRatingsOrderByTitleDateDesc();
 
 }
