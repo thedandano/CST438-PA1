@@ -1,5 +1,6 @@
 package cst438;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,20 +33,20 @@ public class MovieRating {
   @Size(min = 1, max = 25)
   private String lastName;
 
-  private String time;
+  private Date dateTime;
 
   // Constructors
   public MovieRating() {}
 
-  public MovieRating(long id, String movieTitle, int rating, String firstName, String lastName,
-      String time) {
+  public MovieRating(long id, String movieTitle, int movieRating, String firstName, String lastName,
+      Date dateTime) {
     super();
     this.id = id;
     this.movieTitle = movieTitle;
-    this.movieRating = rating;
+    this.movieRating = movieRating;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.time = time;
+    this.dateTime = dateTime;
   }
 
   public long getId() {
@@ -88,14 +89,13 @@ public class MovieRating {
     this.lastName = lastName;
   }
 
-  public String getTime() {
-    return time;
+  public Date getDateTime() {
+    return dateTime;
   }
 
-  public void setTime(String time) {
-    this.time = time;
+  public void setDateTime(Date dateTime) {
+    this.dateTime = dateTime;
   }
-
 
 
 }

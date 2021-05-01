@@ -1,4 +1,4 @@
-package cst438;
+package cst438_1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

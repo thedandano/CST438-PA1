@@ -2,17 +2,23 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Movie Ratings</title>
 </head>
 <body>
 	<table>
 		<tr>
 			<th>Movie Title</th>
 			<th>Movie Rating</th>
+			<th>Person First Name</th>
+			<th>Person Last Name</th>
+			<th>Time Added</th>
 		</tr>
 		<tr th:each="movie : ${movieRatings}" >
 			<td th:text="${movie.movieTitle}"></td>
 			<td th:text="${movie.movieRating}"></td>
+			<td th:text="${movie.firstName}"></td>
+			<td th:text="${movie.lastName}"></td>
+			<td th:text="${movie.dateTime}"></td>
 		</tr>
 	</table>
 	<br><br>

@@ -14,28 +14,16 @@ public class Main {
   @Autowired
   MovieRatingRepository movieRatingRepository;
 
+  /**
+   * Returns the index page
+   * 
+   * @param model
+   * @return index
+   */
   @GetMapping("/")
   public String controller(Model model) {
 
     return "index";
-  }
-
-  /**
-   * Handles the post request by processing the filled new Rating form.
-   * 
-   * @param model
-   * @return
-   */
-  @PostMapping("/movies/new")
-  public String processNewRating(@Valid MovieRating movieRating, BindingResult result,
-      Model model) {
-    // Error handling
-    if (result.hasErrors())
-      return "movie_rating_form";
-
-    movieRating.setTime(new java.util.Date().toString());
-    movieRatingRepository.save(movieRating); // saves rating obj to db
-    return "movie_rating_show";
   }
 
   /**
@@ -51,6 +39,25 @@ public class Main {
     return "movie_rating_form";
   }
 
+
+  /**
+   * Handles the post request by processing the filled new Rating form. Saves the entry to the db.
+   * 
+   * @param model
+   * @return movie_rating_show confirmation page
+   */
+  @PostMapping("/movies/new")
+  public String processNewRating(@Valid MovieRating movieRating, BindingResult result,
+      Model model) {
+    // Error handling
+    if (result.hasErrors())
+      return "movie_rating_form";
+    movieRating.setDateTime(new java.util.Date());
+    movieRatingRepository.save(movieRating); // saves rating obj to db
+    return "movie_rating_show";
+  }
+
+
   /**
    * Handles the request to display all movie ratings
    * 
@@ -59,7 +66,8 @@ public class Main {
    */
   @GetMapping("/movies")
   public String showMovies(Model model) {
-    Iterable<MovieRating> movieRatings = movieRatingRepository.findAll();
+    Iterable<MovieRating> movieRatings =
+        movieRatingRepository.findAllMovieRatingsOrderByTitleDateDesc();
     model.addAttribute("movieRatings", movieRatings);
     return "movie_rating_list";
   }
