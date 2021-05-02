@@ -3,14 +3,15 @@
 <head>
 	<title>Movie Rating Confirmation</title>
 </head>
-<body>
-	<h2 th:inline="text"> Thank you for your rating [[${movieRating.firstName}]]!</h2> <br />
-	Movie Title: <span th:inline="text"> [[${movieRating.movieTitle}]]</span> <br />
-	Your Rating: <span th:inline="text"> [[${movieRating.rating}]]</span> <br />
-	Time Submitted: <span th:inline="text"> [[${movieRating.dateTime}]]</span>
-	<br><br>
-	<a href="/"><button>Home</button></a>
-	<a href="/movies"><button>See All Ratings</button></a>
-	<a href="/movies/new"><button>New Rating</button></a>
-</body>
+	<body>
+		<h2 th:inline="text"> Thank you for your rating [[${movieRating.firstName}]]!</h2> <br />
+		
+		Movie Title: <span th:inline="text"> [[${movieRating.movieTitle}]]</span> <br />
+		Your Rating: <span th:inline="text"> [[${movieRating.rating}]]</span> <br />
+		Time Submitted: <span th:inline="text"> [[${movieRating.dateTime}]]</span>
+		<br><br>
+		<a href="/"><button>Home</button></a>
+		<a href="/movies"><button>See All Ratings</button></a>
+		<a href="/movies/new"><button>New Rating</button></a>
+	</body>
 </html>

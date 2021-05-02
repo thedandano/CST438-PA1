@@ -96,6 +96,4 @@ public class MovieRating {
   public void setDateTime(Date dateTime) {
     this.dateTime = dateTime;
   }
-
-
 }

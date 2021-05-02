@@ -22,7 +22,6 @@ public class Main {
    */
   @GetMapping("/")
   public String controller(Model model) {
-
     return "index";
   }
 
@@ -41,7 +40,7 @@ public class Main {
 
 
   /**
-   * Handles the post request by processing the filled new Rating form. Saves the entry to the db.
+   * Handles the post request by processing the filled new Rating form. Saves the entry to the DB.
    * 
    * @param model
    * @return movie_rating_show confirmation page
@@ -50,10 +49,11 @@ public class Main {
   public String processNewRating(@Valid MovieRating movieRating, BindingResult result,
       Model model) {
     // Error handling
-    if (result.hasErrors())
+    if (result.hasErrors()) {
       return "movie_rating_form";
+    }
     movieRating.setDateTime(new java.util.Date());
-    movieRatingRepository.save(movieRating); // saves rating obj to db
+    movieRatingRepository.save(movieRating); // saves rating object to DB.
     return "movie_rating_show";
   }
 
