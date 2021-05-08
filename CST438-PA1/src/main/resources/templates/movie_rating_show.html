@@ -8,7 +8,7 @@
 		
 		Movie Title: <span th:inline="text"> [[${movieRating.movieTitle}]]</span> <br />
 		Your Rating: <span th:inline="text"> [[${movieRating.rating}]]</span> <br />
-		Time Submitted: <span th:inline="text"> [[${movieRating.dateTime}]]</span>
+		Time Submitted: <span th:inline="text"> [[${#dates.format(movieRating.dateTime, "M/d/YY h:MM aa")}]]</span>
 		<br><br>
 		<a href="/"><button>Home</button></a>
 		<a href="/movies"><button>See All Ratings</button></a>

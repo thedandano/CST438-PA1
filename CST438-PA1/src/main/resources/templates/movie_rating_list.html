@@ -18,7 +18,7 @@
 				<td th:text="${movie.rating}"></td>
 				<td th:text="${movie.firstName}"></td>
 				<td th:text="${movie.lastName}"></td>
-				<td th:text="${movie.dateTime}"></td>
+				<td th:text="${#dates.format(movie.dateTime, 'M/d/YY h:MM aa')}"></td>
 			</tr>
 		</table>
 		<br><br>
